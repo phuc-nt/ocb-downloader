@@ -1,0 +1,36 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build extension zip
+        run: |
+          cd extension
+          zip -r ../ocb-downloader.zip . -x '*.DS_Store'
+          cd ..
+          ls -la ocb-downloader.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ocb-downloader.zip
+          generate_release_notes: true
+          body: |
+            ## Cài đặt
+
+            1. Tải **`ocb-downloader.zip`** bên dưới
+            2. **Giải nén** ra thư mục (vd: `~/Downloads/ocb-downloader`)
+            3. Mở `chrome://extensions` → bật **Developer mode** → **Load unpacked** → chọn thư mục vừa giải nén
+
+            Xem chi tiết trong [README](https://github.com/phuc-nt/ocb-downloader#readme).

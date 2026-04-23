@@ -1,0 +1,10 @@
+# Local Claude Code workspace — không push
+.claude/
+CLAUDE.md
+
+# macOS
+.DS_Store
+
+# Build output
+*.zip
+dist/

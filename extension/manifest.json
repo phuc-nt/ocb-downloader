@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "OCB Omni - Chọn tất cả giao dịch",
+  "version": "1.0.0",
+  "description": "Thêm nút 'Chọn tất cả' vào bảng Sao kê tài khoản OCB Omni KHDN để tick hàng loạt giao dịch, tiết kiệm thời gian thao tác tải UNC / giấy báo nợ / giấy báo có.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://omnicorp.ocb.com.vn/*"
+      ],
+      "js": ["content/select-all-injector.js"],
+      "css": ["content/select-all-injector.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}
