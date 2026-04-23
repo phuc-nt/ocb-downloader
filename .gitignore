@@ -8,3 +8,6 @@ CLAUDE.md
 # Build output
 *.zip
 dist/
+
+# Source assets — đã copy vào docs/images/ cho GitHub Pages
+assets/
