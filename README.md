@@ -5,6 +5,8 @@ Chrome extension thêm nút **"Chọn tất cả"** vào bảng *Sao kê tài kh
 chỉ với 1 click. Sau đó bấm **"TẢI VỀ CHI TIẾT"** của OCB để tải UNC /
 Giấy báo Nợ / Giấy báo Có theo lô dưới dạng ZIP chứa PDF.
 
+> 📖 **[Hướng dẫn cài đặt & sử dụng có hình ảnh →](https://phuc-nt.github.io/ocb-downloader/)**
+
 ## Cài đặt (5 phút, 1 lần duy nhất)
 
 ### Bước 1 — Tải extension
