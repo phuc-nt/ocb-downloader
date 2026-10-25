@@ -1,0 +1,50 @@
+#ocb-invoice-bulk-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.ocb-invoice-bulk-btn,
+.ocb-invoice-bulk-cancel {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ocb-invoice-bulk-btn {
+  color: #ffffff;
+  background-color: #0a6b3d;
+  border: 1px solid #0a6b3d;
+}
+
+.ocb-invoice-bulk-btn:hover:not(:disabled) {
+  background-color: #0d8049;
+  border-color: #0d8049;
+}
+
+.ocb-invoice-bulk-btn:disabled {
+  background-color: #9aa0a6;
+  border-color: #9aa0a6;
+  cursor: not-allowed;
+}
+
+.ocb-invoice-bulk-cancel {
+  color: #b3261e;
+  background-color: #ffffff;
+  border: 1px solid #b3261e;
+}
+
+.ocb-invoice-bulk-cancel[hidden] {
+  display: none;
+}
+
+.ocb-invoice-bulk-status {
+  font-size: 13px;
+  color: #444444;
+}
