@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>OCB Omni — Chọn tất cả giao dịch · Hướng dẫn cài đặt</title>
-<meta name="description" content="Chrome extension giúp tick hàng loạt giao dịch trên OCB Omni KHDN để tải UNC / Giấy báo Nợ / Giấy báo Có theo lô. Hướng dẫn cài đặt và sử dụng chi tiết bằng tiếng Việt." />
+<title>OCB Omni Extension · Hướng dẫn</title>
+<meta name="description" content="Chrome extension cho OCB Omni KHDN: tải UNC theo lô, tổng hợp phát sinh mọi tài khoản theo ngày, tải hóa đơn điện tử hàng loạt. Hướng dẫn bằng tiếng Việt." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -112,24 +112,6 @@
   }
   .section-sub { color: var(--ink-soft); margin: 0 0 36px; font-size: 16px; }
 
-  /* Feature grid */
-  .features {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px; margin-top: 32px;
-  }
-  .feature {
-    background: var(--card); padding: 22px;
-    border-radius: var(--radius); border: 1px solid var(--line);
-  }
-  .feature-icon {
-    width: 36px; height: 36px; border-radius: 9px;
-    background: var(--green-50); color: var(--green-700);
-    display: grid; place-items: center; margin-bottom: 12px;
-    font-size: 18px;
-  }
-  .feature h3 { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
-  .feature p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.5; }
-
   /* Steps */
   .step {
     background: var(--card);
@@ -174,41 +156,12 @@
   .callout.warn { background: #fff3f3; border-color: #f5c6cb; color: #8a2030; }
   .callout strong { font-weight: 700; }
 
-  /* Usage flow */
-  .usage-grid {
-    display: grid; grid-template-columns: 1fr;
-    gap: 20px; margin-top: 24px;
-  }
-  @media (min-width: 720px) {
-    .usage-grid { grid-template-columns: 1fr 1fr; }
-  }
-  .usage-card {
-    background: var(--card); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow);
-  }
-  .usage-card h4 {
-    margin: 0 0 10px; font-size: 16px; font-weight: 600;
-    display: flex; align-items: center; gap: 8px;
-  }
   .pill {
     display: inline-block; padding: 3px 10px; border-radius: 999px;
     font-size: 12px; font-weight: 600;
   }
   .pill.green { background: var(--green-50); color: var(--green-700); }
   .pill.gold  { background: #fcf3dd; color: var(--gold-dark); }
-
-  /* Buttons comparison table */
-  .compare {
-    width: 100%; border-collapse: collapse;
-    background: var(--card); border-radius: var(--radius); overflow: hidden;
-    box-shadow: var(--shadow); border: 1px solid var(--line);
-    margin-top: 24px;
-  }
-  .compare th, .compare td { padding: 14px 18px; text-align: left; font-size: 14.5px; border-bottom: 1px solid var(--line); }
-  .compare th { background: #f4f7f5; font-weight: 600; color: var(--ink); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
-  .compare tr:last-child td { border-bottom: none; }
-  .compare .right { color: var(--green-700); font-weight: 600; }
-  .compare .wrong { color: #8a94a4; }
 
   /* Footer */
   footer {
@@ -219,189 +172,239 @@
   }
   footer a { color: var(--ink-soft); }
 
-  /* TOC floating */
-  .toc-link { display: inline-block; margin-right: 14px; font-size: 13px; color: rgba(255,255,255,.85); }
-  .toc-link:hover { color: #fff; text-decoration: underline; }
-  .toc-row { margin-top: 36px; font-weight: 500; }
+  /* Buttons comparison table */
+  .compare { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .compare th, .compare td { padding: 10px 12px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--line); }
+  .compare th { background: #f4f7f5; font-weight: 600; color: var(--ink); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+  .compare tr:last-child td { border-bottom: none; }
+  .compare .right { color: var(--green-700); font-weight: 600; }
+  .compare .wrong { color: #8a94a4; }
+
+  /* Sticky nav */
+  .topnav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,.94); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topnav-inner {
+    max-width: 860px; margin: 0 auto; padding: 0 16px;
+    display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none;
+  }
+  .topnav-inner::-webkit-scrollbar { display: none; }
+  .topnav a {
+    flex: none; padding: 14px 12px; font-size: 14px; font-weight: 600;
+    color: var(--ink-soft); border-bottom: 3px solid transparent; white-space: nowrap;
+  }
+  .topnav a:hover { color: var(--green-700); text-decoration: none; }
+  .topnav a.active { color: var(--green-700); border-bottom-color: var(--green-700); }
+  section[id] { scroll-margin-top: 56px; }
+
+  /* Quick picker in hero */
+  .quick {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px; margin-top: 40px; text-align: left;
+  }
+  .quick a {
+    display: block; padding: 18px 20px; border-radius: var(--radius);
+    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22);
+    color: #fff; transition: background .15s ease, transform .15s ease;
+  }
+  .quick a:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); text-decoration: none; }
+  .quick .q-icon { font-size: 24px; }
+  .quick .q-title { display: block; font-size: 16px; font-weight: 700; margin: 6px 0 4px; }
+  .quick .q-desc { display: block; font-size: 13.5px; color: rgba(255,255,255,.82); line-height: 1.45; }
+
+  /* Feature section header */
+  .feature-head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+  .feature-head .f-icon {
+    flex: none; width: 48px; height: 48px; border-radius: 12px;
+    background: var(--green-50); display: grid; place-items: center; font-size: 24px;
+  }
+  .feature-head .f-tag { font-size: 12px; font-weight: 700; color: var(--green-700); text-transform: uppercase; letter-spacing: .06em; }
+  .feature-head h2.section-title { margin: 0; }
+  .where { font-size: 14px; color: var(--ink-soft); margin: 0 0 28px; }
+  .where strong { color: var(--ink); }
+
+  /* Collapsibles */
+  details.more {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); margin-bottom: 12px;
+  }
+  details.more > summary {
+    cursor: pointer; padding: 16px 20px; font-weight: 600; list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  details.more > summary::-webkit-details-marker { display: none; }
+  details.more > summary::after { content: '+'; font-size: 20px; color: var(--green-700); font-weight: 400; }
+  details.more[open] > summary::after { content: '−'; }
+  details.more > .more-body { padding: 0 20px 18px; color: var(--ink-soft); }
+  details.more > .more-body .step { box-shadow: none; }
+  details.more p { margin: 0 0 10px; }
+  details.more ul, details.more ol { margin: 6px 0 10px; padding-left: 22px; }
+  .faq-label { font-size: 14px; font-weight: 700; color: var(--ink-soft); margin: 28px 0 10px; }
+
+  .quick-steps { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  .quick-steps li { margin-bottom: 6px; }
 
   @media (max-width: 640px) {
-    .hero { padding: 48px 20px 64px; }
+    .hero { padding: 48px 20px 56px; }
     section { padding: 48px 0; }
     .step { padding: 22px; }
   }
 </style>
-</head>
 <body>
 
 <header class="hero">
   <div class="hero-inner">
-    <span class="badge"><span class="dot"></span>Miễn phí · Mã nguồn mở</span>
-    <h1 class="title">OCB Omni — Chọn tất cả giao dịch, tổng hợp phát sinh &amp; tải hóa đơn hàng loạt</h1>
-    <p class="lead">
-      Chrome extension giúp tick hàng loạt giao dịch trên cổng OCB Omni KHDN để tải
-      UNC / Giấy báo Nợ / Giấy báo Có theo lô chỉ với 1 cú click, tổng hợp phát sinh của mọi tài khoản
-      theo ngày, và tải toàn bộ hóa đơn điện tử (XML / PDF) thành 1 file ZIP.
-    </p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://github.com/phuc-nt/ocb-downloader/releases/latest/download/ocb-downloader.zip">
-        ⬇️ Tải extension (.zip)
+    <span class="badge"><span class="dot"></span>Miễn phí · Mã nguồn mở · Không gửi dữ liệu đi đâu</span>
+    <h1 class="title">OCB Omni Extension</h1>
+    <p class="lead">3 nút bấm giúp bớt việc tay trên cổng OCB Omni KHDN. Chọn việc bạn cần làm:</p>
+    <div class="quick">
+      <a href="#unc">
+        <span class="q-icon">☑️</span>
+        <span class="q-title">1. Tải UNC theo lô</span>
+        <span class="q-desc">Tick tất cả giao dịch 1 lần để tải UNC / Giấy báo Nợ / Có.</span>
       </a>
-      <a class="btn btn-ghost" href="https://github.com/phuc-nt/ocb-downloader" target="_blank" rel="noopener">
-        Mã nguồn trên GitHub →
+      <a href="#summary">
+        <span class="q-icon">📊</span>
+        <span class="q-title">2. Tổng hợp phát sinh</span>
+        <span class="q-desc">Biết ngay tài khoản nào có phát sinh trong ngày, dán vào Excel.</span>
+      </a>
+      <a href="#invoices">
+        <span class="q-icon">🧾</span>
+        <span class="q-title">3. Tải hóa đơn hàng loạt</span>
+        <span class="q-desc">Tải toàn bộ hóa đơn XML / PDF thành 1 file ZIP.</span>
       </a>
     </div>
-    <div class="toc-row">
-      <a class="toc-link" href="#features">Tính năng</a>
-      <a class="toc-link" href="#install">Cài đặt</a>
-      <a class="toc-link" href="#usage">Cách dùng</a>
-      <a class="toc-link" href="#summary">Tổng hợp phát sinh</a>
-      <a class="toc-link" href="#invoices">Tải hóa đơn</a>
-      <a class="toc-link" href="#buttons">Phân biệt 2 nút</a>
+    <div class="cta-row" style="margin-top:32px;">
+      <a class="btn btn-primary" href="https://github.com/phuc-nt/ocb-downloader/releases/latest/download/ocb-downloader.zip">⬇️ Tải extension (.zip)</a>
+      <a class="btn btn-ghost" href="#install">Chưa cài? Xem cách cài →</a>
     </div>
   </div>
 </header>
 
-<main>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="#install">Cài đặt</a>
+    <a href="#unc">☑️ Tải UNC theo lô</a>
+    <a href="#summary">📊 Tổng hợp phát sinh</a>
+    <a href="#invoices">🧾 Tải hóa đơn</a>
+    <a href="#faq">Hỏi đáp</a>
+  </div>
+</nav>
 
-  <section id="features">
-    <div class="container">
-      <h2 class="section-title">Giải quyết vấn đề gì?</h2>
-      <p class="section-sub">
-        OCB Omni chỉ cho tick từng dòng giao dịch rồi mới tải UNC được — với 14 tài khoản × ~200 dòng/tháng
-        thì thao tác thủ công cực kỳ tốn thời gian. Extension này lấp đúng chỗ trống đó.
-      </p>
-      <div class="features">
-        <div class="feature">
-          <div class="feature-icon">⚡</div>
-          <h3>1 click tick toàn bộ</h3>
-          <p>Thêm nút "Chọn tất cả (N)" vào header bảng sao kê, tick đủ mọi giao dịch đang hiển thị.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">📊</div>
-          <h3>Tổng hợp phát sinh</h3>
-          <p>1 click quét mọi tài khoản theo khoảng ngày, biết ngay tài khoản nào có phát sinh tăng / giảm, dán thẳng vào Excel.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🧾</div>
-          <h3>Tải hóa đơn hàng loạt</h3>
-          <p>Màn "Hóa đơn điện tử": 1 click tải toàn bộ XML / PDF theo bộ lọc ngày, gom vào 1 file ZIP kèm danh sách CSV.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🔒</div>
-          <h3>Riêng tư 100%</h3>
-          <p>Chỉ chạy trên trang OCB của bạn, không gửi dữ liệu đi đâu cả, không cần đăng nhập thêm.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🪶</div>
-          <h3>Siêu nhẹ</h3>
-          <p>Chỉ ~20KB, không cần Node/build. Cài 1 lần dùng mãi, tự kích hoạt mỗi khi vào OCB Omni.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🧩</div>
-          <h3>Không phá trang gốc</h3>
-          <p>Chỉ thêm nút vào màn sao kê và màn hóa đơn. Các chức năng khác của OCB giữ nguyên.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<main>
 
   <section id="install" style="background: #fff;">
     <div class="container">
-      <h2 class="section-title">Cài đặt (5 phút, làm 1 lần duy nhất)</h2>
-      <p class="section-sub">Không cần lập trình — chỉ cần tải ZIP, giải nén, load vào Chrome.</p>
+      <h2 class="section-title">Cài đặt</h2>
+      <p class="section-sub">Làm 1 lần duy nhất, khoảng 5 phút.</p>
+      <ol class="quick-steps">
+        <li>Tải <a href="https://github.com/phuc-nt/ocb-downloader/releases/latest/download/ocb-downloader.zip">ocb-downloader.zip</a> và giải nén (double-click) thành <strong>thư mục</strong> <code>ocb-downloader</code>.</li>
+        <li>Mở <code>chrome://extensions</code>, bật <strong>Developer mode</strong> ở góc phải trên.</li>
+        <li>Bấm <strong>Load unpacked</strong> → chọn thư mục <code>ocb-downloader</code> vừa giải nén.</li>
+        <li>Thấy thẻ <strong>OCB Omni</strong> bật xanh là xong. Vào OCB Omni, các nút sẽ tự hiện.</li>
+      </ol>
+      <details class="more">
+        <summary>Xem từng bước có ảnh minh hoạ</summary>
+        <div class="more-body">
+    <div class="step">
+            <div class="step-head">
+              <div class="step-num">1</div>
+              <h3>Tải file ZIP</h3>
+            </div>
+            <p>
+              Bấm nút bên dưới để tải <code>ocb-downloader.zip</code> về máy (vào thư mục Downloads).
+            </p>
+            <p>
+              <a class="btn btn-primary" href="https://github.com/phuc-nt/ocb-downloader/releases/latest/download/ocb-downloader.zip">
+                ⬇️ Tải ocb-downloader.zip
+              </a>
+            </p>
+          </div>
 
-      <div class="step">
-        <div class="step-head">
-          <div class="step-num">1</div>
-          <h3>Tải file ZIP</h3>
-        </div>
-        <p>
-          Bấm nút bên dưới để tải <code>ocb-downloader.zip</code> về máy (vào thư mục Downloads).
-        </p>
-        <p>
-          <a class="btn btn-primary" href="https://github.com/phuc-nt/ocb-downloader/releases/latest/download/ocb-downloader.zip">
-            ⬇️ Tải ocb-downloader.zip
-          </a>
-        </p>
-      </div>
+          <div class="step">
+            <div class="step-head">
+              <div class="step-num">2</div>
+              <h3>Giải nén ZIP</h3>
+            </div>
+            <p>
+              Mở thư mục <strong>Downloads</strong> → double-click file <code>ocb-downloader.zip</code>
+              → sẽ xuất hiện một <strong>thư mục</strong> tên <code>ocb-downloader</code> ngay cạnh file zip.
+            </p>
+            <img class="img-medium" src="images/3.png" alt="Thư mục ocb-downloader đã giải nén trong Downloads" />
+            <div class="callout warn">
+              <div>⚠️ <strong>Lưu ý:</strong> phải là <em>thư mục đã giải nén</em>, không phải file .zip. Chrome cần folder để load.</div>
+            </div>
+          </div>
 
-      <div class="step">
-        <div class="step-head">
-          <div class="step-num">2</div>
-          <h3>Giải nén ZIP</h3>
-        </div>
-        <p>
-          Mở thư mục <strong>Downloads</strong> → double-click file <code>ocb-downloader.zip</code>
-          → sẽ xuất hiện một <strong>thư mục</strong> tên <code>ocb-downloader</code> ngay cạnh file zip.
-        </p>
-        <img class="img-medium" src="images/3.png" alt="Thư mục ocb-downloader đã giải nén trong Downloads" />
-        <div class="callout warn">
-          <div>⚠️ <strong>Lưu ý:</strong> phải là <em>thư mục đã giải nén</em>, không phải file .zip. Chrome cần folder để load.</div>
-        </div>
-      </div>
+          <div class="step">
+            <div class="step-head">
+              <div class="step-num">3</div>
+              <h3>Mở trang Extensions của Chrome</h3>
+            </div>
+            <p>
+              Bấm vào icon <strong>3 chấm</strong> (góc trên phải Chrome) →
+              <strong>Extensions</strong> → <strong>Manage Extensions</strong>.
+            </p>
+            <p>Hoặc gõ thẳng vào thanh địa chỉ: <code>chrome://extensions</code> rồi Enter.</p>
+            <img class="img-narrow" src="images/1.png" alt="Menu Chrome mở Extensions" />
+          </div>
 
-      <div class="step">
-        <div class="step-head">
-          <div class="step-num">3</div>
-          <h3>Mở trang Extensions của Chrome</h3>
-        </div>
-        <p>
-          Bấm vào icon <strong>3 chấm</strong> (góc trên phải Chrome) →
-          <strong>Extensions</strong> → <strong>Manage Extensions</strong>.
-        </p>
-        <p>Hoặc gõ thẳng vào thanh địa chỉ: <code>chrome://extensions</code> rồi Enter.</p>
-        <img class="img-narrow" src="images/1.png" alt="Menu Chrome mở Extensions" />
-      </div>
+          <div class="step">
+            <div class="step-head">
+              <div class="step-num">4</div>
+              <h3>Bật Developer mode và Load unpacked</h3>
+            </div>
+            <p>
+              Ở góc trên bên phải trang Extensions, bật công tắc <strong>Developer mode</strong> →
+              sẽ hiện nút <strong>Load unpacked</strong>.
+            </p>
+            <p>
+              Bấm <strong>Load unpacked</strong> → chọn <strong>thư mục</strong> <code>ocb-downloader</code>
+              đã giải nén ở bước 2.
+            </p>
+            <img class="img-medium" src="images/2.png" alt="Nút Load unpacked trên trang Extensions" />
+          </div>
 
-      <div class="step">
-        <div class="step-head">
-          <div class="step-num">4</div>
-          <h3>Bật Developer mode và Load unpacked</h3>
-        </div>
-        <p>
-          Ở góc trên bên phải trang Extensions, bật công tắc <strong>Developer mode</strong> →
-          sẽ hiện nút <strong>Load unpacked</strong>.
-        </p>
-        <p>
-          Bấm <strong>Load unpacked</strong> → chọn <strong>thư mục</strong> <code>ocb-downloader</code>
-          đã giải nén ở bước 2.
-        </p>
-        <img class="img-medium" src="images/2.png" alt="Nút Load unpacked trên trang Extensions" />
-      </div>
+          <div class="step">
+            <div class="step-head">
+              <div class="step-num">5</div>
+              <h3>Xác nhận đã cài thành công</h3>
+            </div>
+            <p>
+              Nếu thấy thẻ <strong>OCB Omni - Chọn tất cả giao dịch, tổng hợp phát sinh &amp; tải hóa đơn</strong> xuất hiện trong danh sách extensions
+              và công tắc bật xanh — thành công rồi.
+            </p>
+            <img class="img-medium" src="images/4.png" alt="Extension OCB đã cài thành công" />
+          </div>
 
-      <div class="step">
-        <div class="step-head">
-          <div class="step-num">5</div>
-          <h3>Xác nhận đã cài thành công</h3>
+          <div class="step">
+            <div class="step-head">
+              <div class="step-num">6</div>
+              <h3>(Khuyến nghị) Ghim extension lên thanh công cụ</h3>
+            </div>
+            <p>
+              Bấm icon <strong>mảnh ghép</strong> trên thanh Chrome → tìm <strong>OCB Omni</strong>
+              → bấm icon <strong>đinh ghim</strong> bên cạnh để luôn hiển thị.
+            </p>
+            <img class="img-narrow" src="images/5.png" alt="Ghim extension lên toolbar Chrome" />
+            <div class="callout info">
+              <div>ℹ️ Ghim không bắt buộc. Extension vẫn tự chạy khi vào OCB Omni dù có ghim hay không.</div>
+            </div>
+          </div>
         </div>
-        <p>
-          Nếu thấy thẻ <strong>OCB Omni - Chọn tất cả giao dịch &amp; tải hóa đơn hàng loạt</strong> xuất hiện trong danh sách extensions
-          và công tắc bật xanh — thành công rồi.
-        </p>
-        <img class="img-medium" src="images/4.png" alt="Extension OCB đã cài thành công" />
-      </div>
-
-      <div class="step">
-        <div class="step-head">
-          <div class="step-num">6</div>
-          <h3>(Khuyến nghị) Ghim extension lên thanh công cụ</h3>
-        </div>
-        <p>
-          Bấm icon <strong>mảnh ghép</strong> trên thanh Chrome → tìm <strong>OCB Omni - Chọn tất cả</strong>
-          → bấm icon <strong>đinh ghim</strong> bên cạnh để luôn hiển thị.
-        </p>
-        <img class="img-narrow" src="images/5.png" alt="Ghim extension lên toolbar Chrome" />
-        <div class="callout info">
-          <div>ℹ️ Ghim không bắt buộc. Extension vẫn tự chạy khi vào OCB Omni dù có ghim hay không.</div>
-        </div>
-      </div>
+      </details>
     </div>
   </section>
 
-  <section id="usage">
+  <section id="unc">
     <div class="container">
-      <h2 class="section-title">Cách dùng hàng tháng</h2>
-      <p class="section-sub">Quy trình tải UNC/Giấy báo theo lô — từ đầu đến file .zip chứa PDF.</p>
+      <div class="feature-head">
+        <div class="f-icon">☑️</div>
+        <div><div class="f-tag">Tính năng 1</div><h2 class="section-title">Tải UNC theo lô</h2></div>
+      </div>
+      <p class="where">Ở màn <strong>Thông tin tài khoản → Sao kê tài khoản</strong>. Dùng khi cần tải UNC / Giấy báo Nợ / Giấy báo Có của nhiều giao dịch.</p>
 
       <div class="step">
         <div class="step-head">
@@ -409,7 +412,6 @@
           <h3>Vào trang Sao kê tài khoản</h3>
         </div>
         <ol>
-          <li>Đăng nhập <a href="https://omnicorp.ocb.com.vn/" target="_blank" rel="noopener">OCB Omni KHDN</a></li>
           <li>Menu <strong>Thông tin tài khoản</strong> → <strong>Sao kê tài khoản</strong></li>
           <li>Chọn tài khoản + khoảng thời gian → bấm <strong>Tìm kiếm</strong></li>
         </ol>
@@ -451,15 +453,45 @@
           File <code>transactions-YYYY-MM-DD.zip</code> sẽ được tải xuống. Giải nén ra →
           mỗi giao dịch là 1 file PDF UNC / Giấy báo Nợ / Giấy báo Có.
         </p>
-        <img class="img-medium" src="images/8.png" alt="File zip transactions đã tải xong" />
+        <img class="img-narrow" src="images/8.png" alt="File zip transactions đã tải xong" />
       </div>
+
+      <details class="more">
+        <summary>OCB có 2 nút vàng giống nhau, bấm nút nào?</summary>
+        <div class="more-body">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th>Nút</th>
+                <th>Tác dụng</th>
+                <th>Khi nào dùng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="right">TẢI VỀ CHI TIẾT <span class="pill gold">to, có viền đậm</span></td>
+                <td>Tải UNC / Giấy báo theo lô → ZIP nhiều file PDF</td>
+                <td><strong>Dùng cái này</strong> sau khi đã tick giao dịch</td>
+              </tr>
+              <tr>
+                <td class="wrong">TẢI VỀ <span class="pill gold">nhỏ, có dropdown</span></td>
+                <td>Export bảng sao kê tổng hợp ra 1 file XLS / PDF / XLSX</td>
+                <td>Chỉ khi muốn 1 file báo cáo tổng hợp — không phải UNC lô</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
     </div>
   </section>
 
   <section id="summary" style="background: #fff;">
     <div class="container">
-      <h2 class="section-title">Tổng hợp phát sinh tất cả tài khoản</h2>
-      <p class="section-sub">Không cần chọn từng tài khoản trong dropdown rồi bấm Tìm kiếm nữa: 1 lần bấm là biết hôm nay tài khoản nào có phát sinh.</p>
+      <div class="feature-head">
+        <div class="f-icon">📊</div>
+        <div><div class="f-tag">Tính năng 2</div><h2 class="section-title">Tổng hợp phát sinh tất cả tài khoản</h2></div>
+      </div>
+      <p class="where">Ở màn <strong>Thông tin tài khoản → Sao kê tài khoản</strong>. Không cần chọn từng tài khoản rồi bấm Tìm kiếm nữa: 1 lần bấm là biết tài khoản nào có phát sinh.</p>
 
       <div class="step">
         <div class="step-head">
@@ -512,8 +544,11 @@
 
   <section id="invoices">
     <div class="container">
-      <h2 class="section-title">Tải hóa đơn điện tử hàng loạt</h2>
-      <p class="section-sub">Thay vì bấm từng link XML / PDF qua hàng chục trang, tải toàn bộ hóa đơn trong khoảng ngày thành 1 file ZIP.</p>
+      <div class="feature-head">
+        <div class="f-icon">🧾</div>
+        <div><div class="f-tag">Tính năng 3</div><h2 class="section-title">Tải hóa đơn điện tử hàng loạt</h2></div>
+      </div>
+      <p class="where">Ở màn <strong>Thông tin tài khoản → Hóa đơn điện tử</strong>. Thay vì bấm từng link XML / PDF qua hàng chục trang, tải hết thành 1 file ZIP.</p>
 
       <div class="step">
         <div class="step-head">
@@ -566,97 +601,90 @@
     </div>
   </section>
 
-  <section id="buttons" style="background: #fff;">
+  <section id="faq" style="background: #fff;">
     <div class="container">
-      <h2 class="section-title">Phân biệt 2 nút trên trang OCB</h2>
-      <p class="section-sub">OCB có 2 nút màu vàng trông giống nhau — đừng bấm nhầm.</p>
-      <table class="compare">
-        <thead>
-          <tr>
-            <th>Nút</th>
-            <th>Tác dụng</th>
-            <th>Khi nào dùng</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="right">TẢI VỀ CHI TIẾT <span class="pill gold">to, có viền đậm</span></td>
-            <td>Tải UNC / Giấy báo theo lô → ZIP nhiều file PDF</td>
-            <td><strong>Dùng cái này</strong> sau khi đã tick giao dịch</td>
-          </tr>
-          <tr>
-            <td class="wrong">TẢI VỀ <span class="pill gold">nhỏ, có dropdown</span></td>
-            <td>Export bảng sao kê tổng hợp ra 1 file XLS / PDF / XLSX</td>
-            <td>Chỉ khi muốn 1 file báo cáo tổng hợp — không phải UNC lô</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+      <h2 class="section-title">Hỏi đáp</h2>
+      <p class="section-sub">Bấm vào câu hỏi để xem trả lời.</p>
 
-  <section id="faq">
-    <div class="container">
-      <h2 class="section-title">Câu hỏi thường gặp</h2>
+      <div class="faq-label">Chung</div>
+      <details class="more">
+        <summary>Extension có an toàn không?</summary>
+        <div class="more-body">
+          <p>An toàn. Mã nguồn công khai trên <a href="https://github.com/phuc-nt/ocb-downloader" target="_blank">GitHub</a>.
+          Extension chỉ chạy trên <code>omnicorp.ocb.com.vn</code>, không gửi dữ liệu đi đâu, không đọc mật khẩu,
+          không can thiệp các trang khác.</p>
+        </div>
+      </details>
+      <details class="more">
+        <summary>Cập nhật phiên bản mới thế nào?</summary>
+        <div class="more-body">
+          <ol>
+            <li>Tải ZIP mới từ <a href="https://github.com/phuc-nt/ocb-downloader/releases" target="_blank">Releases</a>.</li>
+            <li>Giải nén đè lên thư mục cũ (hoặc xóa cũ, tạo mới).</li>
+            <li>Vào <code>chrome://extensions</code> → bấm icon 🔄 trên thẻ extension.</li>
+          </ol>
+        </div>
+      </details>
+      <details class="more">
+        <summary>Không thấy nút nào của extension hiện ra?</summary>
+        <div class="more-body">
+          <ul>
+            <li>Kiểm tra extension đã bật (công tắc xanh ở <code>chrome://extensions</code>) và là bản 1.2.0 trở lên.</li>
+            <li>Kiểm tra đã vào đúng màn và đã bấm <strong>Tìm kiếm</strong> / chọn bộ lọc ngày.</li>
+            <li>Thử tải lại trang (Cmd/Ctrl + R).</li>
+          </ul>
+        </div>
+      </details>
 
-      <div class="step">
-        <h3 style="margin-top:0;">❓ Extension có an toàn không?</h3>
-        <p>An toàn. Source code công khai trên <a href="https://github.com/phuc-nt/ocb-downloader" target="_blank">GitHub</a>.
-        Extension chỉ chạy trên domain <code>omnicorp.ocb.com.vn</code>, không gửi dữ liệu đi đâu, không đọc mật khẩu,
-        không can thiệp các trang khác.</p>
-      </div>
+      <div class="faq-label">☑️ Tải UNC theo lô</div>
+      <details class="more">
+        <summary>Tick xong mà "TẢI VỀ CHI TIẾT" vẫn mờ không bấm được?</summary>
+        <div class="more-body">
+          <p>OCB giới hạn <strong>tối đa 10 giao dịch / lượt tải</strong>. Nếu có hơn 10 giao dịch, chia thành nhiều lượt:
+          tick 10 dòng → tải → bỏ tick → tick 10 dòng tiếp theo → tải.</p>
+        </div>
+      </details>
+      <details class="more">
+        <summary>Có tự động bấm "TẢI VỀ CHI TIẾT" luôn không?</summary>
+        <div class="more-body">
+          <p>Không. Extension chủ ý dừng ở bước tick để bạn tự kiểm tra lại trước khi tải.</p>
+        </div>
+      </details>
 
-      <div class="step">
-        <h3 style="margin-top:0;">❓ Sao không thấy nút "Chọn tất cả" hiện ra?</h3>
-        <ul>
-          <li>Kiểm tra đã vào đúng trang <strong>Sao kê tài khoản</strong> và đã bấm <strong>Tìm kiếm</strong> chưa.</li>
-          <li>Kiểm tra extension đã bật (công tắc xanh ở <code>chrome://extensions</code>).</li>
-          <li>Thử reload trang (Cmd/Ctrl + R).</li>
-        </ul>
-      </div>
+      <div class="faq-label">📊 Tổng hợp phát sinh</div>
+      <details class="more">
+        <summary>Số liệu có chính xác không? Có giới hạn gì?</summary>
+        <div class="more-body">
+          <ul>
+            <li>Số liệu lấy từ đúng nguồn mà bảng sao kê OCB dùng, cộng toàn bộ giao dịch (không chỉ trang đang hiển thị).</li>
+            <li>OCB chỉ cho tìm tối đa 3 tháng mỗi lần, nên khoảng ngày cũng giới hạn như vậy.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="more">
+        <summary>Tên tài khoản tự đặt bị mất?</summary>
+        <div class="more-body">
+          <p>Tên được lưu trên trình duyệt đang dùng. Đổi máy, đổi trình duyệt hoặc xóa dữ liệu duyệt web thì cần đặt lại.</p>
+        </div>
+      </details>
 
-      <div class="step">
-        <h3 style="margin-top:0;">❓ Tick xong mà "TẢI VỀ CHI TIẾT" vẫn mờ không bấm được?</h3>
-        <p>Có thể do bảng phân trang quá nhiều dòng. OCB giới hạn <strong>tối đa 10 giao dịch / lượt tải</strong>.
-        Nếu có &gt; 10 giao dịch, chia thành nhiều lượt: tick 10 dòng đầu → tải → bỏ tick → tick 10 dòng tiếp theo → tải.</p>
-      </div>
-
-      <div class="step">
-        <h3 style="margin-top:0;">❓ Có tự động bấm "TẢI VỀ CHI TIẾT" luôn không?</h3>
-        <p>Không. Extension chủ ý dừng ở bước tick để user tự kiểm tra lại trước khi tải — an toàn hơn.</p>
-      </div>
-
-      <div class="step">
-        <h3 style="margin-top:0;">❓ Không thấy thanh nút "Tải tất cả XML / PDF"?</h3>
-        <ul>
-          <li>Kiểm tra đang ở màn <strong>Hóa đơn điện tử</strong> và bảng hóa đơn đã hiện.</li>
-          <li>Nếu dòng chữ báo "Chọn khoảng ngày để bắt đầu", hãy bấm chọn lại bộ lọc ngày một lần.</li>
-          <li>Đảm bảo đã cập nhật extension lên bản 1.2.0 trở lên (xem câu hỏi cuối).</li>
-        </ul>
-      </div>
-
-      <div class="step">
-        <h3 style="margin-top:0;">❓ Tải hóa đơn bị lỗi giữa chừng?</h3>
-        <p>Mỗi file lỗi được thử lại tự động 2 lần. File vẫn lỗi sẽ được ghi ở cột <strong>Lỗi</strong> trong
-        <code>danh-sach.csv</code> — các file khác vẫn có trong ZIP. Nếu báo "Phiên đăng nhập đã hết hạn", đăng nhập lại OCB rồi tải lại.</p>
-      </div>
-
-      <div class="step">
-        <h3 style="margin-top:0;">❓ Tổng hợp phát sinh có chính xác không? Có giới hạn gì?</h3>
-        <ul>
-          <li>Số liệu lấy từ đúng nguồn mà bảng sao kê OCB dùng, cộng toàn bộ giao dịch (không chỉ trang đang hiển thị).</li>
-          <li>OCB chỉ cho tìm tối đa 3 tháng mỗi lần, nên khoảng ngày cũng giới hạn như vậy.</li>
-          <li>Tên tài khoản tự đặt được lưu trên trình duyệt đang dùng. Đổi máy, đổi trình duyệt hoặc xóa dữ liệu duyệt web thì cần đặt lại.</li>
-        </ul>
-      </div>
-
-      <div class="step">
-        <h3 style="margin-top:0;">❓ Cập nhật phiên bản mới thế nào?</h3>
-        <ol>
-          <li>Tải ZIP mới từ <a href="https://github.com/phuc-nt/ocb-downloader/releases" target="_blank">Releases</a>.</li>
-          <li>Giải nén đè lên thư mục cũ (hoặc xóa cũ, tạo mới).</li>
-          <li>Vào <code>chrome://extensions</code> → bấm icon 🔄 trên thẻ extension.</li>
-        </ol>
-      </div>
+      <div class="faq-label">🧾 Tải hóa đơn</div>
+      <details class="more">
+        <summary>Không thấy thanh nút "Tải tất cả XML / PDF"?</summary>
+        <div class="more-body">
+          <ul>
+            <li>Kiểm tra đang ở màn <strong>Hóa đơn điện tử</strong> và bảng hóa đơn đã hiện.</li>
+            <li>Nếu dòng chữ báo "Chọn khoảng ngày để bắt đầu", hãy bấm chọn lại bộ lọc ngày một lần.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="more">
+        <summary>Tải hóa đơn bị lỗi giữa chừng?</summary>
+        <div class="more-body">
+          <p>Mỗi file lỗi được thử lại tự động 2 lần. File vẫn lỗi sẽ được ghi ở cột <strong>Lỗi</strong> trong
+          <code>danh-sach.csv</code>, các file khác vẫn có trong ZIP. Nếu báo "Phiên đăng nhập đã hết hạn", đăng nhập lại OCB rồi tải lại.</p>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -668,6 +696,26 @@
     · Không liên kết chính thức với Ngân hàng OCB.
   </p>
 </footer>
+
+<script>
+  (function () {
+    var links = document.querySelectorAll('.topnav a');
+    var byId = {};
+    links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('active'); });
+        var a = byId[e.target.id];
+        if (a) { a.classList.add('active'); a.parentNode.scrollLeft = a.offsetLeft - 16; }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(byId).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+  })();
+</script>
 
 </body>
 </html>
