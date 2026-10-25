@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "OCB Omni - Chọn tất cả giao dịch & tải hóa đơn hàng loạt",
-  "version": "1.1.0",
-  "description": "Thêm nút 'Chọn tất cả' vào bảng Sao kê tài khoản và nút tải hàng loạt hóa đơn điện tử (XML/PDF) thành 1 file ZIP trên OCB Omni KHDN.",
+  "name": "OCB Omni - Chọn tất cả giao dịch, tổng hợp phát sinh & tải hóa đơn",
+  "version": "1.2.0",
+  "description": "Thêm nút 'Chọn tất cả' vào bảng Sao kê tài khoản, tổng hợp phát sinh tăng/giảm của mọi tài khoản theo ngày, và tải hàng loạt hóa đơn điện tử (XML/PDF) thành 1 file ZIP trên OCB Omni KHDN.",
   "icons": {
     "16": "icons/icon-16.png",
     "48": "icons/icon-48.png",
@@ -15,11 +15,13 @@
       ],
       "js": [
         "content/select-all-injector.js",
-        "content/invoice-bulk-downloader.js"
+        "content/invoice-bulk-downloader.js",
+        "content/account-activity-summary.js"
       ],
       "css": [
         "content/select-all-injector.css",
-        "content/invoice-bulk-downloader.css"
+        "content/invoice-bulk-downloader.css",
+        "content/account-activity-summary.css"
       ],
       "run_at": "document_idle",
       "all_frames": false

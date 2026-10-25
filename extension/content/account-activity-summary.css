@@ -1,0 +1,196 @@
+#ocb-activity-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.ocb-activity-btn,
+.ocb-activity-cancel,
+.ocb-activity-copy {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ocb-activity-btn {
+  color: #ffffff;
+  background-color: #0a6b3d;
+  border: 1px solid #0a6b3d;
+}
+
+.ocb-activity-btn:hover:not(:disabled) {
+  background-color: #0d8049;
+  border-color: #0d8049;
+}
+
+.ocb-activity-btn:disabled {
+  background-color: #9aa0a6;
+  border-color: #9aa0a6;
+  cursor: not-allowed;
+}
+
+.ocb-activity-cancel {
+  color: #b3261e;
+  background-color: #ffffff;
+  border: 1px solid #b3261e;
+}
+
+.ocb-activity-cancel[hidden] {
+  display: none;
+}
+
+.ocb-activity-copy {
+  color: #0a6b3d;
+  background-color: #ffffff;
+  border: 1px solid #0a6b3d;
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+.ocb-activity-status {
+  font-size: 13px;
+  color: #444444;
+}
+
+#ocb-activity-panel {
+  margin: 0 0 24px;
+  padding: 16px;
+  border: 1px solid #d0d7d3;
+  border-radius: 6px;
+  background: #fafcfb;
+}
+
+.ocb-activity-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.ocb-activity-tools label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto 0 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/* CSS của OCB style mọi input → trả checkbox về mặc định */
+#ocb-activity-panel .ocb-activity-tools input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+  appearance: auto;
+  position: static;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+  box-shadow: none;
+}
+
+.ocb-activity-block + .ocb-activity-block {
+  margin-top: 20px;
+}
+
+.ocb-activity-block-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.ocb-activity-block-head h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0a6b3d;
+}
+
+.ocb-activity-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+#ocb-activity-panel .ocb-activity-table th,
+#ocb-activity-panel .ocb-activity-table td {
+  height: auto;
+  padding: 4px 10px;
+  line-height: 1.4;
+  vertical-align: middle;
+  border: 1px solid #e0e4e2;
+  text-align: left;
+}
+
+.ocb-activity-table th {
+  color: #ffffff;
+  background: #0a6b3d;
+  font-weight: 600;
+}
+
+.ocb-activity-table tr.is-active td {
+  background: #f0f8f3;
+}
+
+.ocb-activity-no {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.ocb-activity-num {
+  text-align: right !important;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.ocb-activity-num.is-debit {
+  color: #b3261e;
+}
+
+.ocb-activity-error {
+  color: #b3261e;
+}
+
+.ocb-activity-total td {
+  font-weight: 600;
+  background: #eef2f0;
+}
+
+#ocb-activity-panel .ocb-activity-name {
+  width: 100%;
+  min-width: 180px;
+  height: 26px !important;
+  min-height: 0 !important;
+  margin: 0;
+  padding: 2px 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #222222;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: transparent;
+  box-shadow: none;
+}
+
+#ocb-activity-panel .ocb-activity-name:hover,
+#ocb-activity-panel .ocb-activity-name:focus {
+  border-color: #c4ccc8;
+  background: #ffffff;
+  outline: none;
+}
+
+.ocb-activity-empty {
+  margin: 0 0 8px;
+  color: #444444;
+}

@@ -8,6 +8,10 @@ chỉ với 1 click, rồi tải UNC / Giấy báo Nợ / Giấy báo Có theo l
 Trên màn *Hóa đơn điện tử*, extension thêm nút **"Tải tất cả XML / PDF / XML + PDF"**:
 tải toàn bộ hóa đơn trong khoảng ngày đang chọn thành 1 file ZIP, kèm `danh-sach.csv`.
 
+Trên màn *Sao kê tài khoản*, nút **"Tổng hợp phát sinh tất cả tài khoản"** quét mọi tài khoản
+theo khoảng ngày đang chọn, cộng phát sinh tăng / giảm theo từng ngày để biết tài khoản nào có
+giao dịch. Có nút sao chép dán thẳng vào Excel và tải CSV.
+
 ## 📖 [Hướng dẫn cài đặt & sử dụng →](https://phuc-nt.github.io/ocb-downloader/)
 
 ## ⬇️ [Tải extension (.zip)](https://github.com/phuc-nt/ocb-downloader/releases/latest/download/ocb-downloader.zip)

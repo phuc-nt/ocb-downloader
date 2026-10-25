@@ -38,8 +38,28 @@
       list.getEntries().forEach((e) => {
         if (e.name.indexOf(LIST_PATH + '?') !== -1) lastListUrl = e.name;
       });
+      if (!running) setStatus(describeRange());
     });
     observer.observe({ type: 'resource', buffered: true });
+  }
+
+  /**
+   * Khoảng ngày của bộ lọc hiện tại, chuẩn hóa về yyyy-mm-dd.
+   * Chọn "Chọn ngày" → OCB gửi `2026-09-25`; chọn "Hôm nay / 3 ngày / Tuần / Tháng
+   * trước" → OCB gửi ISO UTC `2026-10-18T15:17:56.612Z`, quy về ngày theo giờ máy.
+   */
+  function getCurrentRange() {
+    if (!lastListUrl) return null;
+    const params = new URL(lastListUrl).searchParams;
+    const norm = (v) => (!v || /^\d{4}-\d{2}-\d{2}$/.test(v) ? v || '' : formatDate(new Date(v)));
+    return { dateFrom: norm(params.get('dateFrom')), dateTo: norm(params.get('dateTo')) };
+  }
+
+  function describeRange() {
+    const range = getCurrentRange();
+    if (!range) return 'Chọn khoảng ngày để bắt đầu';
+    const vi = (s) => s.split('-').reverse().join('.');
+    return 'Sẽ tải hóa đơn theo bộ lọc: ' + vi(range.dateFrom) + ' – ' + vi(range.dateTo);
   }
 
   function isInvoicesPage() {
@@ -76,11 +96,7 @@
     url.searchParams.set('pageSize', '100000');
     const res = await apiGet(url.pathname + url.search);
     const data = await res.json();
-    return {
-      items: data.content || [],
-      dateFrom: url.searchParams.get('dateFrom') || '',
-      dateTo: url.searchParams.get('dateTo') || '',
-    };
+    return Object.assign({ items: data.content || [] }, getCurrentRange());
   }
 
   function parseFilename(contentDisposition) {
@@ -363,7 +379,7 @@
     bar.appendChild(cancel);
     const status = document.createElement('span');
     status.className = 'ocb-invoice-bulk-status';
-    status.textContent = 'Tải toàn bộ hóa đơn trong khoảng ngày đang chọn thành 1 file ZIP';
+    status.textContent = describeRange();
     bar.appendChild(status);
 
     table.parentElement.insertBefore(bar, table);

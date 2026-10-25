@@ -236,10 +236,11 @@
 <header class="hero">
   <div class="hero-inner">
     <span class="badge"><span class="dot"></span>Miễn phí · Mã nguồn mở</span>
-    <h1 class="title">OCB Omni — Chọn tất cả giao dịch</h1>
+    <h1 class="title">OCB Omni — Chọn tất cả giao dịch, tổng hợp phát sinh &amp; tải hóa đơn hàng loạt</h1>
     <p class="lead">
       Chrome extension giúp tick hàng loạt giao dịch trên cổng OCB Omni KHDN để tải
-      UNC / Giấy báo Nợ / Giấy báo Có theo lô chỉ với 1 cú click.
+      UNC / Giấy báo Nợ / Giấy báo Có theo lô chỉ với 1 cú click, tổng hợp phát sinh của mọi tài khoản
+      theo ngày, và tải toàn bộ hóa đơn điện tử (XML / PDF) thành 1 file ZIP.
     </p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://github.com/phuc-nt/ocb-downloader/releases/latest/download/ocb-downloader.zip">
@@ -253,6 +254,8 @@
       <a class="toc-link" href="#features">Tính năng</a>
       <a class="toc-link" href="#install">Cài đặt</a>
       <a class="toc-link" href="#usage">Cách dùng</a>
+      <a class="toc-link" href="#summary">Tổng hợp phát sinh</a>
+      <a class="toc-link" href="#invoices">Tải hóa đơn</a>
       <a class="toc-link" href="#buttons">Phân biệt 2 nút</a>
     </div>
   </div>
@@ -274,6 +277,16 @@
           <p>Thêm nút "Chọn tất cả (N)" vào header bảng sao kê, tick đủ mọi giao dịch đang hiển thị.</p>
         </div>
         <div class="feature">
+          <div class="feature-icon">📊</div>
+          <h3>Tổng hợp phát sinh</h3>
+          <p>1 click quét mọi tài khoản theo khoảng ngày, biết ngay tài khoản nào có phát sinh tăng / giảm, dán thẳng vào Excel.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🧾</div>
+          <h3>Tải hóa đơn hàng loạt</h3>
+          <p>Màn "Hóa đơn điện tử": 1 click tải toàn bộ XML / PDF theo bộ lọc ngày, gom vào 1 file ZIP kèm danh sách CSV.</p>
+        </div>
+        <div class="feature">
           <div class="feature-icon">🔒</div>
           <h3>Riêng tư 100%</h3>
           <p>Chỉ chạy trên trang OCB của bạn, không gửi dữ liệu đi đâu cả, không cần đăng nhập thêm.</p>
@@ -281,12 +294,12 @@
         <div class="feature">
           <div class="feature-icon">🪶</div>
           <h3>Siêu nhẹ</h3>
-          <p>Chỉ ~5KB, không cần Node/build. Cài 1 lần dùng mãi, tự kích hoạt mỗi khi vào OCB Omni.</p>
+          <p>Chỉ ~20KB, không cần Node/build. Cài 1 lần dùng mãi, tự kích hoạt mỗi khi vào OCB Omni.</p>
         </div>
         <div class="feature">
           <div class="feature-icon">🧩</div>
           <h3>Không phá trang gốc</h3>
-          <p>Chỉ can thiệp đúng bảng có cột "Mã giao dịch". Các chức năng khác của OCB giữ nguyên.</p>
+          <p>Chỉ thêm nút vào màn sao kê và màn hóa đơn. Các chức năng khác của OCB giữ nguyên.</p>
         </div>
       </div>
     </div>
@@ -362,7 +375,7 @@
           <h3>Xác nhận đã cài thành công</h3>
         </div>
         <p>
-          Nếu thấy thẻ <strong>OCB Omni - Chọn tất cả giao dịch</strong> xuất hiện trong danh sách extensions
+          Nếu thấy thẻ <strong>OCB Omni - Chọn tất cả giao dịch &amp; tải hóa đơn hàng loạt</strong> xuất hiện trong danh sách extensions
           và công tắc bật xanh — thành công rồi.
         </p>
         <img class="img-medium" src="images/4.png" alt="Extension OCB đã cài thành công" />
@@ -443,6 +456,116 @@
     </div>
   </section>
 
+  <section id="summary" style="background: #fff;">
+    <div class="container">
+      <h2 class="section-title">Tổng hợp phát sinh tất cả tài khoản</h2>
+      <p class="section-sub">Không cần chọn từng tài khoản trong dropdown rồi bấm Tìm kiếm nữa: 1 lần bấm là biết hôm nay tài khoản nào có phát sinh.</p>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">1</div>
+          <h3>Vào Sao kê tài khoản, chọn khoảng ngày rồi bấm Tìm kiếm</h3>
+        </div>
+        <p>
+          Chọn ngày ở ô <strong>Khoảng</strong> (thường là 1 ngày, ví dụ hôm nay) và <strong>Tìm theo</strong>
+          Ngày thực hiện hoặc Ngày tạo, rồi bấm <strong>Tìm kiếm</strong> như bình thường.
+          Tài khoản đang chọn trong dropdown không quan trọng.
+        </p>
+        <p>
+          Dưới nút <strong>XUẤT CHỨNG TỪ</strong> sẽ có nút xanh
+          <span class="pill green">Tổng hợp phát sinh tất cả tài khoản</span>. Dòng chữ bên cạnh cho biết khoảng ngày sẽ quét.
+        </p>
+        <img src="images/13.png" alt="Nút Tổng hợp phát sinh tất cả tài khoản trên màn Sao kê tài khoản" />
+      </div>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">2</div>
+          <h3>Bấm nút, đợi vài giây</h3>
+        </div>
+        <p>
+          Extension quét lần lượt mọi tài khoản và hiện bảng ngay bên dưới: mỗi ngày có phát sinh 1 bảng,
+          chỉ liệt kê tài khoản có giao dịch, với <strong>Phát sinh tăng</strong>, <strong>Phát sinh giảm</strong>
+          và <strong>Số GD</strong>. Chọn nhiều ngày thì có thêm bảng <strong>Cả khoảng</strong> cộng dồn ở đầu.
+        </p>
+        <img src="images/14.png" alt="Bảng tổng hợp phát sinh theo ngày của các tài khoản" />
+        <div class="callout info">
+          <div>ℹ️ Trên OCB mọi tài khoản đều mang tên giống nhau. Bấm vào ô <strong>Tên tài khoản</strong> để tự đặt tên
+          (vd: "TK chuyên Thu dự án A"), extension sẽ nhớ cho các lần sau.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">3</div>
+          <h3>Đưa sang Excel</h3>
+        </div>
+        <ul>
+          <li><strong>Sao chép</strong> cạnh mỗi bảng → dán thẳng vào Excel (Ctrl/Cmd + V).</li>
+          <li><strong>Tải Excel (CSV)</strong> → 1 file gồm mọi ngày, mỗi dòng là 1 ngày × 1 tài khoản.</li>
+          <li>Tick <strong>Hiện cả tài khoản không phát sinh</strong> nếu muốn đủ danh sách tài khoản.</li>
+        </ul>
+        <p>Thấy tài khoản nào có phát sinh thì chọn tài khoản đó ở dropdown phía trên để xem chi tiết và xuất hóa đơn như bình thường.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="invoices">
+    <div class="container">
+      <h2 class="section-title">Tải hóa đơn điện tử hàng loạt</h2>
+      <p class="section-sub">Thay vì bấm từng link XML / PDF qua hàng chục trang, tải toàn bộ hóa đơn trong khoảng ngày thành 1 file ZIP.</p>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">1</div>
+          <h3>Vào màn Hóa đơn điện tử và chọn khoảng ngày</h3>
+        </div>
+        <ol>
+          <li>Menu <strong>Thông tin tài khoản</strong> → <strong>Hóa đơn điện tử</strong></li>
+          <li>Chọn <strong>Hôm nay / 3 ngày trước / Tuần trước / Tháng trước</strong>, hoặc nhập khoảng ngày ở ô <strong>Chọn ngày</strong></li>
+        </ol>
+        <p>
+          Extension thêm thanh nút ngay trên bảng. Dòng chữ bên cạnh cho biết khoảng ngày sẽ tải —
+          luôn khớp với bộ lọc bạn đang chọn và tự cập nhật mỗi khi đổi bộ lọc.
+        </p>
+        <img src="images/9.png" alt="Thanh nút Tải tất cả XML / PDF trên màn Hóa đơn điện tử" />
+      </div>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">2</div>
+          <h3>Bấm "Tải tất cả XML", "Tải tất cả PDF" hoặc "Tải XML + PDF"</h3>
+        </div>
+        <p>
+          Extension tải lần lượt toàn bộ hóa đơn (không chỉ 10 dòng đang hiển thị) và báo tiến độ.
+          Có thể bấm <span class="pill" style="background:#fdecea;color:#b3261e;">Hủy</span> để dừng giữa chừng.
+        </p>
+        <img src="images/10.png" alt="Đang tải hóa đơn, hiển thị tiến độ và nút Hủy" />
+        <div class="callout info">
+          <div>ℹ️ XML nhẹ (~4KB/hóa đơn, vài giây là xong). PDF nặng hơn (~200KB/hóa đơn) — 500 hóa đơn khoảng 100MB, mất vài phút. Đừng đóng tab khi đang tải.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">3</div>
+          <h3>Nhận 1 file ZIP</h3>
+        </div>
+        <p>
+          Khi xong, Chrome tự tải về file <code>hoa-don-OCB_&lt;từ ngày&gt;_&lt;đến ngày&gt;_XML.zip</code>
+          (hoặc <code>_PDF</code>, <code>_XML-PDF</code>).
+        </p>
+        <img src="images/11.png" alt="Thông báo tải xong 523/523 file" style="margin-bottom:16px" />
+        <p>
+          Giải nén ra: mỗi hóa đơn 1 file, tên bắt đầu bằng ngày giao dịch để dễ sắp xếp
+          (chọn XML + PDF thì chia 2 thư mục <code>XML/</code> và <code>PDF/</code>).
+          Kèm file <code>danh-sach.csv</code> mở bằng Excel: ngày, diễn giải, số tiền, mã hóa đơn, tên file và lỗi (nếu có).
+        </p>
+        <img class="img-medium" src="images/12.png" alt="Các file PDF hóa đơn sau khi giải nén" />
+      </div>
+    </div>
+  </section>
+
   <section id="buttons" style="background: #fff;">
     <div class="container">
       <h2 class="section-title">Phân biệt 2 nút trên trang OCB</h2>
@@ -471,7 +594,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="faq">
     <div class="container">
       <h2 class="section-title">Câu hỏi thường gặp</h2>
 
@@ -500,6 +623,30 @@
       <div class="step">
         <h3 style="margin-top:0;">❓ Có tự động bấm "TẢI VỀ CHI TIẾT" luôn không?</h3>
         <p>Không. Extension chủ ý dừng ở bước tick để user tự kiểm tra lại trước khi tải — an toàn hơn.</p>
+      </div>
+
+      <div class="step">
+        <h3 style="margin-top:0;">❓ Không thấy thanh nút "Tải tất cả XML / PDF"?</h3>
+        <ul>
+          <li>Kiểm tra đang ở màn <strong>Hóa đơn điện tử</strong> và bảng hóa đơn đã hiện.</li>
+          <li>Nếu dòng chữ báo "Chọn khoảng ngày để bắt đầu", hãy bấm chọn lại bộ lọc ngày một lần.</li>
+          <li>Đảm bảo đã cập nhật extension lên bản 1.2.0 trở lên (xem câu hỏi cuối).</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h3 style="margin-top:0;">❓ Tải hóa đơn bị lỗi giữa chừng?</h3>
+        <p>Mỗi file lỗi được thử lại tự động 2 lần. File vẫn lỗi sẽ được ghi ở cột <strong>Lỗi</strong> trong
+        <code>danh-sach.csv</code> — các file khác vẫn có trong ZIP. Nếu báo "Phiên đăng nhập đã hết hạn", đăng nhập lại OCB rồi tải lại.</p>
+      </div>
+
+      <div class="step">
+        <h3 style="margin-top:0;">❓ Tổng hợp phát sinh có chính xác không? Có giới hạn gì?</h3>
+        <ul>
+          <li>Số liệu lấy từ đúng nguồn mà bảng sao kê OCB dùng, cộng toàn bộ giao dịch (không chỉ trang đang hiển thị).</li>
+          <li>OCB chỉ cho tìm tối đa 3 tháng mỗi lần, nên khoảng ngày cũng giới hạn như vậy.</li>
+          <li>Tên tài khoản tự đặt được lưu trên trình duyệt đang dùng. Đổi máy, đổi trình duyệt hoặc xóa dữ liệu duyệt web thì cần đặt lại.</li>
+        </ul>
       </div>
 
       <div class="step">
